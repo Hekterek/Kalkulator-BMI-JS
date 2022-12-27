@@ -221,12 +221,21 @@ input:focus {
   margin-left: 4px;
 }
 
+#arrow_left {
+  cursor: pointer;
+  margin-left: 4px;
+}
+
 .hide {
   opacity: 0;
 }
 
 .show {
   opacity: 1;
+}
+
+#ref {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
