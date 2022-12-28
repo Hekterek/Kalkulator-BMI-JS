@@ -155,6 +155,7 @@ h1 {
   font-size: 4rem;
   font-weight: 300;
   text-shadow: 0 3px 10px rgb(128, 128, 128);
+  text-align: center;
 }
 
 .box {
@@ -166,14 +167,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 2.5rem;
-}
-.box__top {
-  width: 100%;
-  height: 50%;
-  transition: opacity 1s;
-}
-.box__bottom {
   width: 100%;
   height: 50%;
   transition: opacity 1s;
@@ -234,8 +229,9 @@ input:focus {
   opacity: 1;
 }
 
-#ref {
+#refresh {
   cursor: pointer;
+  transition: opacity 1s;
 }
 
 /*# sourceMappingURL=style.css.map */

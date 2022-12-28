@@ -6,16 +6,16 @@ const calc = (paramKg, paramCm) => {
    result = Math.round((paramKg / (paramCm / 100) ** 2) * 100) / 100;
 
    if (result < 18.5) {
-      info = `Niestety za malo jesz`;
+      info = `Niestety za mało jesz`;
    }
    if (result >= 18.5 && result <= 24.9) {
-      info = `Jesz tyle ile trzeba`;
+      info = `Wszystko w normie, tak trzymać`;
    }
    if (result >= 25 && result <= 29.9) {
-      info = `Troche ci sie przytylo `;
+      info = `No no, ktoś tu lubi sobie zjeść`;
    }
    if (result > 30) {
-      info = `Jesz jak za trzech`;
+      info = `Ty to chyba jesz jak za trzech`;
    }
 };
 
@@ -66,11 +66,17 @@ const stepKg1 = () => {
    show();
 
    arrowRight.addEventListener(`click`, () => {
-      kg = document.querySelector(`#kg`).value;
+      let idKg = document.querySelector(`#kg`).value;
 
-      hide();
+      if (idKg > 1 && idKg < 300) {
+         kg = document.querySelector(`#kg`).value;
 
-      setTimeout(stepCm2, 1000);
+         hide();
+
+         setTimeout(stepCm2, 1000);
+      } else {
+         alert(`Wprowadz wage od 1 do 300 (kg)`);
+      }
    });
 };
 
@@ -95,11 +101,16 @@ const stepCm2 = function () {
    });
 
    arrowRight.addEventListener(`click`, () => {
-      cm = document.querySelector(`#cm`).value;
+      let idCm = document.querySelector(`#cm`).value;
+      if (idCm > 50 && idCm < 250) {
+         cm = document.querySelector(`#cm`).value;
 
-      hide();
+         hide();
 
-      setTimeout(finish, 1000);
+         setTimeout(finish, 1000);
+      } else {
+         alert(`Wprowadz swoj wzrost miedzy 50 i 250 (cm) !`);
+      }
    });
 };
 
@@ -122,10 +133,10 @@ const finish = () => {
 
       refresh.addEventListener(`click`, () => {
          hide();
-         refresh.innerHTML = ``;
+         refresh.classList.add(`hide`);
          kg = 0;
          cm = 0;
-         start();
+         setTimeout(stepKg1, 1000);
       });
    }, 1000);
 };
